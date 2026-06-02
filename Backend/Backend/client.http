@@ -1,0 +1,36 @@
+@base_address=http://localhost:3000/api/clients
+
+POST {{base_address}}
+Content-Type: application/json
+
+{
+    "FirstName": "Duarte",
+    "LastName": "Joan",
+    "Email": "duarte.joan@example.com",
+    "Age": 30,
+    "Address": "123 Main St",
+    "Phone": "555-1234"   
+}
+###
+GET {{base_address}}
+
+###
+GET {{base_address}}/2
+
+
+###
+PUT {{base_address}}/5
+Content-Type: application/json
+
+{
+    "FirstName": "Alireza",
+    "LastName": "Hashemi",
+    "Email": "alireza.hashemi@example.com",
+    "Age": 30,
+    "Address": "21, 3°esq",
+    "Phone": "9203405055",
+    "AccountNumber": "6391591149348943398050",
+    "Balance": 0
+}
+###
+DELETE {{base_address}}/5
