@@ -13,9 +13,9 @@ const ClientForm = ({ methods, onFormReset, onFormSubmit }) => {
       style={{ marginBottom: "5px" }}
     >
       <div className="space-y-4">
-        <form className="flex flex-col sm:flex-row gap-4">
+        <form className="flex flex-col sm:flex-row gap-4 flex-wrap justify-between grid sm:grid-cols-1 lg:grid-cols-1">
           <input type="hidden" {...register("id")} />
-          <div className="flex-1">
+          <div className="flex-1" style={{ width: "60%" }}>
             <label
               htmlFor="firstName"
               className="block text-sm font-medium text-gray-700 mb-2"
@@ -39,7 +39,7 @@ const ClientForm = ({ methods, onFormReset, onFormSubmit }) => {
                 "First Name cannot exceed 30 characters"}
             </p>
           </div>
-          <div className="flex-1">
+          <div className="flex-1" style={{ width: "60%" }}>
             <label
               htmlFor="lastName"
               className="block text-sm font-medium text-gray-700 mb-2"
@@ -61,49 +61,8 @@ const ClientForm = ({ methods, onFormReset, onFormSubmit }) => {
                 "Last Name cannot exceed 30 characters"}
             </p>
           </div>
-          <div className="flex-1">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Email*
-            </label>
-            <input
-              type="email"
-              {...register("email", {
-                required: true,
-                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-              })}
-              className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2"
-              placeholder="Enter email"
-            />
-            <p className="mt-1 text-sm text-red-600 flex items-center">
-              {errors.email?.type === "required" && "Email is required"}
-              {errors.email?.type === "pattern" && "Please enter a valid email"}
-            </p>
-          </div>
-          <div className="flex-1">
-            <label
-              htmlFor="age"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Age*
-            </label>
-            <input
-              type="number"
-              {...register("age", {
-                required: true,
-                min: 18,
-              })}
-              className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2"
-              placeholder="Enter age"
-            />
-            <p className="mt-1 text-sm text-red-600 flex items-center">
-              {errors.age?.type === "required" && "Age is required"}
-              {errors.age?.type === "min" && "Age must be more than 18"}
-            </p>
-          </div>
-          <div className="flex-1">
+
+          <div className="flex-1" style={{ width: "80%" }}>
             <label
               htmlFor="address"
               className="block text-sm font-medium text-gray-700 mb-2"
@@ -125,7 +84,50 @@ const ClientForm = ({ methods, onFormReset, onFormSubmit }) => {
                 "Address cannot exceed 100 characters"}
             </p>
           </div>
-          <div className="flex-1">
+          <div className="flex-1" style={{ width: "20%" }}>
+            <label
+              htmlFor="age"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Age*
+            </label>
+            <input
+              type="number"
+              {...register("age", {
+                required: true,
+                min: 18,
+              })}
+              className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2"
+              placeholder="Enter age"
+            />
+            <p className="mt-1 text-sm text-red-600 flex items-center">
+              {errors.age?.type === "required" && "Age is required"}
+              {errors.age?.type === "min" && "Age must be more than 18"}
+            </p>
+          </div>
+
+          <div className="flex-1" style={{ width: "60%" }}>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Email*
+            </label>
+            <input
+              type="email"
+              {...register("email", {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              })}
+              className="w-full px-4 py-3 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2"
+              placeholder="Enter email"
+            />
+            <p className="mt-1 text-sm text-red-600 flex items-center">
+              {errors.email?.type === "required" && "Email is required"}
+              {errors.email?.type === "pattern" && "Please enter a valid email"}
+            </p>
+          </div>
+          <div className="flex-1" style={{ width: "40%" }}>
             <label
               htmlFor="phone"
               className="block text-sm font-medium text-gray-700 mb-2"
