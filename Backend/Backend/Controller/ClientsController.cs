@@ -14,6 +14,7 @@ public class ClientsController : ControllerBase
     {
         _context = context;
     }
+    [NonAction]
     public string GenerateAccountNumber()
     {
         return DateTime.UtcNow.Ticks.ToString() + new Random().Next(1000, 9999).ToString();
